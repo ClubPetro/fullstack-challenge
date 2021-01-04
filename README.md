@@ -83,9 +83,9 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e os
 
 > Requisitos que não são obrigatórios mas podem te deixar em vantagem com relação aos outros candidatos.
 
-- [Material-UI](https://material-ui.com/pt/)
-- [Styled Components](https://styled-components.com/)
-- Testes automatizados
+- [Material-UI](https://material-ui.com/pt/);
+- [Styled Components](https://styled-components.com/);
+- Testes automatizados.
 
 ### Submissão e Prazo de entrega
 
