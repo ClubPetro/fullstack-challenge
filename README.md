@@ -5,6 +5,8 @@
 
 - [Descrição](#descrição)
   - [O Desafio](#o-desafio)
+      - [Backend](#backend)
+      - [Frontend](#frontend)
   - [Requisitos Obrigatórios](#requisitos-obrigatórios)
   - [Bônus](#bônus)
 - [Submissão e Prazo de Entrega](#submissão-e-prazo-de-entrega)
