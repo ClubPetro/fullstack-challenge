@@ -32,7 +32,7 @@ Os dados a ser considerados são:
 - Meta: O mês e o ano que o usuário pretende visitar o local;
 - Url da bandeira do país;
 - Data de criação do registro;
-- Data de atualização do registro;
+- Data de atualização do registro.
 
 ##### Requisitos Obrigatórios
 
@@ -41,7 +41,7 @@ Os dados a ser considerados são:
 - A API deverá ser desenvolvida com Node.js e Express;
 - Apenas o Local e a Meta poderão ser editados;
 - O mesmo local em determinado país não poderá ser adicionado de forma duplicada;
-- A listagem dos dados deverá ser ordenada de forma crescente pela meta.
+- A listagem dos dados deverá ser ordenada de forma crescente pela meta;
 - O candidato deverá adicionar ao projeto uma explicação de como executar a aplicação.
 
 ##### Bônus
@@ -91,5 +91,5 @@ Quando o usuário clicar em "Adicionar", o formulário deverá ser resetado e os
 
 - O candidato deverá realizar um fork deste repositório e submeter o código no mesmo.
 - Em caso do deploy realizado, a url deverá ser adicionada no README;
-- O prazo de entrega para este desafio é de 3 (três) semanas, contando a partir do dia em que o canditado recebeu o email com o link do repositório.
+- O prazo de entrega para este desafio é de 3 (três) semanas, contando a partir do dia em que o canditado recebeu o email com o link do repositório;
 - Ao finalizar o desafio, o candidato deverá enviar um email para jobs@clubpetro.com.br contendo o link do seu PR.
