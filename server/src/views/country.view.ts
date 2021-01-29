@@ -1,5 +1,5 @@
-import { serializeDateToView } from "helpers/serializeDateToView";
-import { ICountry } from "interfaces/ICountry";
+import { serializeDateToView } from "../helpers/serializeDateToView";
+import { ICountry } from "../interfaces/ICountry";
 
 interface ICountryView {
   id: string;
