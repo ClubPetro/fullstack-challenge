@@ -1,0 +1,13 @@
+.modalStyles {
+  width: 25vw;
+  height: 50vh;
+}
+
+.goalInputMask {
+  height: 25px;
+  width: 170px;
+  border-radius: 5px;
+  border: 0;
+  box-shadow: 0 0 0.5px 0.5px #919191;
+  padding-left: 5px;
+}
