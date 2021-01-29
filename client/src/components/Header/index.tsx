@@ -7,7 +7,7 @@ import logo from '../../assets/logo.png';
 export const Header: React.FC = () => {
   return (
     <Container>
-      <img src={logo} alt="Logo"/>
+      <img src={logo} alt="Logo" />
     </Container>
   );
-}
+};

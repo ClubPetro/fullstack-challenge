@@ -22,14 +22,19 @@ export interface ICard {
   flag: string;
 }
 
-export const Card: React.FC<ICard> = ({ id, name, place_to_visit, date, flag }) => {
-
+export const Card: React.FC<ICard> = ({
+  id,
+  name,
+  place_to_visit,
+  date,
+  flag,
+}) => {
   // async function handleEdit() {
 
   // }
 
-  async function handleRemove(id: string) {
-    await api.delete(`country/${id}`);
+  async function handleRemove(cardId: string): Promise<void> {
+    await api.delete(`country/${cardId}`);
     window.location.reload();
   }
 
@@ -41,12 +46,9 @@ export const Card: React.FC<ICard> = ({ id, name, place_to_visit, date, flag }) 
           <CountryTitle>{name}</CountryTitle>
         </FlagContainer>
         <ButtonsContainer>
-          <IconEdit
-            style={{fontSize: 20}}
-            onClick={() => {}}
-          />
+          <IconEdit style={{ fontSize: 20 }} />
           <IconDelete
-            style={{fontSize: 23}}
+            style={{ fontSize: 23 }}
             onClick={() => handleRemove(id)}
           />
         </ButtonsContainer>
@@ -57,4 +59,4 @@ export const Card: React.FC<ICard> = ({ id, name, place_to_visit, date, flag }) 
       </Body>
     </Container>
   );
-}
+};

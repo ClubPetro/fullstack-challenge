@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -55,9 +55,7 @@ export const InputText = styled.input`
   padding: 0 10px;
 `;
 
-export const InputLabel = styled.label`
-
-`;
+export const InputLabel = styled.label``;
 
 export const CardsArea = styled.section`
   display: flex;

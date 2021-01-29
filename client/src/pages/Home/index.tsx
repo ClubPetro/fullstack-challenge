@@ -1,5 +1,4 @@
 import React, { useEffect, useState, FormEvent, useCallback } from 'react';
-import axios from 'axios';
 
 import { api } from '../../services/api';
 import { restCountriesAPI } from '../../services/restCountriesAPI';
@@ -15,7 +14,7 @@ import {
   SearchArea,
   SelectCountry,
   InputText,
-  CardsArea
+  CardsArea,
 } from './styles';
 
 interface RestCountriesDataRequest {
@@ -36,8 +35,10 @@ export const Home: React.FC = () => {
   const [cards, setCards] = useState<ICard[]>([]);
 
   useEffect(() => {
-    async function loadData() {
-      const response = await restCountriesAPI.get<RestCountriesDataRequest[]>('/');
+    async function loadData(): Promise<void> {
+      const response = await restCountriesAPI.get<RestCountriesDataRequest[]>(
+        '/',
+      );
       const names = response.data.map(data => data.translations.br);
       const flags = response.data.map(data => data.flag);
 
@@ -46,10 +47,10 @@ export const Home: React.FC = () => {
     }
 
     loadData();
-  }, [])
+  }, []);
 
   useEffect(() => {
-    async function loadCardsData() {
+    async function loadCardsData(): Promise<void> {
       const response = await api.get('/country');
       setCards(response.data);
     }
@@ -57,7 +58,7 @@ export const Home: React.FC = () => {
     loadCardsData();
   }, []);
 
-  async function handleAddNewPlace(event: FormEvent) {
+  async function handleAddNewPlace(event: FormEvent): Promise<void> {
     event.preventDefault();
 
     const index = countryNames.indexOf(selectedCountry);
@@ -68,16 +69,16 @@ export const Home: React.FC = () => {
     const data = {
       name: selectedCountry,
       place_to_visit: local,
-      date: date,
-      flag: flag,
-    }
+      date,
+      flag,
+    };
 
     await api.post('/country', data);
 
     setLocal('');
     setDate('');
     window.location.reload();
-  };
+  }
 
   return (
     <Container>
@@ -85,10 +86,22 @@ export const Home: React.FC = () => {
         <Form onSubmit={handleAddNewPlace}>
           <InputBlock>
             <label>País</label>
-            <SelectCountry name="countries" id="countries" onChange={(event) => { setSelectedCountry(event.target.value) }}>
-              <option value="" disabled hidden>Selecione...</option>
+            <SelectCountry
+              name="countries"
+              id="countries"
+              onChange={event => {
+                setSelectedCountry(event.target.value);
+              }}
+            >
+              <option value="" disabled hidden>
+                Selecione...
+              </option>
               {countryNames.map(countryName => {
-                return <option key={countryName} value={countryName}>{countryName}</option>
+                return (
+                  <option key={countryName} value={countryName}>
+                    {countryName}
+                  </option>
+                );
               })}
             </SelectCountry>
           </InputBlock>
@@ -99,8 +112,9 @@ export const Home: React.FC = () => {
               placeholder="Digite o local que deseja conhecer"
               type="text"
               name="local"
+              id="local"
               value={local}
-              onChange={(event) => setLocal(event.target.value)}
+              onChange={event => setLocal(event.target.value)}
             />
           </InputBlock>
 
@@ -109,8 +123,8 @@ export const Home: React.FC = () => {
             <Input
               name="date"
               value={date}
-              placeholder='mês/ano'
-              onChange={(event) => setDate(event.target.value)}
+              placeholder="mês/ano"
+              onChange={event => setDate(event.target.value)}
             />
           </InputBlock>
 
@@ -129,9 +143,7 @@ export const Home: React.FC = () => {
             place_to_visit={card.place_to_visit}
           />
         ))}
-
       </CardsArea>
-
     </Container>
   );
-}
+};
