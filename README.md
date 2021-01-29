@@ -7,6 +7,22 @@
 
 Você precisa do [Node.JS](https://nodejs.org/en/download/) e o [Yarn](https://classic.yarnpkg.com/en/docs/install/#debian-stable) instalado na sua máquina para executar o projeto.
 
+Após instalar o Node e o Yarn, instale as dependências do projeto contidas no `package.json`:
+
+```bash
+# Instale as dependências da raíz do repositório:
+$ cd fullstack-challenge
+$ yarn
+
+# Instale as dependências do server:
+$ cd fullstack-challenge/server
+$ yarn
+
+# Instale as dependências do client:
+$ cd fullstack-challenge/client
+$ yarn
+```
+
 ## **Server**
 
 Primeiro, altere o arquivo `.env.example` para `.env`:
