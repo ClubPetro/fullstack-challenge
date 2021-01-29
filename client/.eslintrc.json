@@ -25,6 +25,7 @@
         "prettier"
     ],
     "rules": {
+      "jsx-a11y/label-has-associated-control": "off",
       "no-param-reassign": "off",
       "prettier/prettier": "error",
       "react/jsx-one-expression-per-line": "off",
