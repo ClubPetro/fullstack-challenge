@@ -1,0 +1,26 @@
+{
+  "name": "places-around-the-world",
+  "version": "1.0.0",
+  "repository": "git@github.com:x0n4d0/places-around-the-world.git",
+  "author": "x0n4d0 <romagnolimauricio@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "react",
+    "typescript",
+    "typeorm",
+    "docker",
+    "express",
+    "styled-components"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "husky": "^4.3.7"
+  }
+}
