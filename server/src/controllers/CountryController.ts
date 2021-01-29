@@ -1,11 +1,11 @@
 import { Request, Response } from 'express';
 import { getRepository } from 'typeorm';
 
-import { ICountryController } from 'interfaces/ICountryController';
+import { ICountryController } from '../interfaces/ICountryController';
 import { AppError } from '../errors/AppError';
 import { Country } from '../models/Country';
 import { serializeDateToSave } from '../helpers/serializeDateToSave';
-import { countryView } from 'views/country.view';
+import { countryView } from '../views/country.view';
 
 export class CountryController implements ICountryController {
   public async create(request: Request, response: Response): Promise<Response> {
@@ -13,7 +13,6 @@ export class CountryController implements ICountryController {
 
     const countryRepository = getRepository(Country);
 
-    // Não permitir criar um país com mesmo nome
     // Não permitir adicionar um mesmo local para visitar no mesmo país
 
     const [month, year] = serializeDateToSave(date);
@@ -34,7 +33,7 @@ export class CountryController implements ICountryController {
   }
 
   public async list(request: Request, response: Response): Promise<Response> {
-    // Ordenar os que estão no banco de dados antes de retornar;
+    // Ordenar os dados que estão no banco de dados antes de retornar;
     const countryRepository = getRepository(Country);
     const countries = await countryRepository.find();
     const serializedCountries = countries.map(country => countryView(country));
