@@ -13,4 +13,4 @@ export const App: React.FC = () => {
       <GlobalStyles />
     </>
   );
-}
+};

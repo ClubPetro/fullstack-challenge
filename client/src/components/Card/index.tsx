@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 
-import { api } from '../../services/api';
+import { EditCardModal } from './EditCardModal';
+
+import { serverAPI } from '../../services/serverAPI';
 
 import {
   Container,
@@ -29,34 +31,43 @@ export const Card: React.FC<ICard> = ({
   date,
   flag,
 }) => {
-  // async function handleEdit() {
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
-  // }
+  // const handleEditCard = useCallback(async (cardId: string) => {
+  //   console.log('');
+  // });
 
-  async function handleRemove(cardId: string): Promise<void> {
-    await api.delete(`country/${cardId}`);
+  const handleRemove = useCallback(async (cardId: string) => {
+    await serverAPI.delete(`country/${cardId}`);
     window.location.reload();
-  }
+  }, []);
 
   return (
-    <Container>
-      <Header>
-        <FlagContainer>
-          <Flag src={flag} />
-          <CountryTitle>{name}</CountryTitle>
-        </FlagContainer>
-        <ButtonsContainer>
-          <IconEdit style={{ fontSize: 20 }} />
-          <IconDelete
-            style={{ fontSize: 23 }}
-            onClick={() => handleRemove(id)}
-          />
-        </ButtonsContainer>
-      </Header>
-      <Body>
-        <h5>Local: {place_to_visit}</h5>
-        <h5>Meta: {date}</h5>
-      </Body>
-    </Container>
+    <>
+      <Container>
+        <Header>
+          <FlagContainer>
+            <Flag src={flag} />
+            <CountryTitle>{name}</CountryTitle>
+          </FlagContainer>
+          <ButtonsContainer>
+            <IconEdit
+              style={{ fontSize: 20 }}
+              onClick={() => setIsOpenModal(!isOpenModal)}
+            />
+            <IconDelete
+              style={{ fontSize: 23 }}
+              onClick={() => handleRemove(id)}
+            />
+          </ButtonsContainer>
+        </Header>
+        <Body>
+          <h5>Local: {place_to_visit}</h5>
+          <h5>Meta: {date}</h5>
+        </Body>
+      </Container>
+
+      {isOpenModal && <EditCardModal />}
+    </>
   );
 };

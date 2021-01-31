@@ -5,7 +5,7 @@ export const Container = styled.header`
   width: 100%;
   height: 82px;
   box-shadow: 0 5px 5px var(--grey);
-  z-index: 999999999999;
+  z-index: 999;
 
   display: flex;
   align-items: center;

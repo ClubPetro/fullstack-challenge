@@ -1,10 +1,10 @@
-import React, { useEffect, useState, FormEvent, useCallback } from 'react';
+import React, { useEffect, useState, FormEvent } from 'react';
 
-import { api } from '../../services/api';
-import { restCountriesAPI } from '../../services/restCountriesAPI';
-
-import { Input } from '../../components/Input';
+import { DateInput } from '../../components/DateInput';
 import { Card, ICard } from '../../components/Card';
+
+import { serverAPI } from '../../services/serverAPI';
+import { restCountriesAPI } from '../../services/restCountriesAPI';
 
 import {
   Container,
@@ -51,29 +51,27 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     async function loadCardsData(): Promise<void> {
-      const response = await api.get('/country');
+      const response = await serverAPI.get('/country');
       setCards(response.data);
     }
 
     loadCardsData();
-  }, []);
+  }, [cards]);
 
   async function handleAddNewPlace(event: FormEvent): Promise<void> {
     event.preventDefault();
 
-    const index = countryNames.indexOf(selectedCountry);
-    const flag = countryFlags[index];
-
-    // Validação de data!!
+    const indexOfCountryFlag = countryNames.indexOf(selectedCountry);
+    const countryFlag = countryFlags[indexOfCountryFlag];
 
     const data = {
       name: selectedCountry,
       place_to_visit: local,
       date,
-      flag,
+      flag: countryFlag,
     };
 
-    await api.post('/country', data);
+    await serverAPI.post('/country', data);
 
     setLocal('');
     setDate('');
@@ -120,7 +118,7 @@ export const Home: React.FC = () => {
 
           <InputBlock>
             <label>Meta</label>
-            <Input
+            <DateInput
               name="date"
               value={date}
               placeholder="mês/ano"
