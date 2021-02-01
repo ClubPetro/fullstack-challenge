@@ -1,8 +1,9 @@
 import React, { useCallback, useState } from 'react';
 
-import { EditCardModal } from './EditCardModal';
-
 import { serverAPI } from '../../services/serverAPI';
+
+import { EditCardModal } from './EditCardModal';
+import { IconDelete, IconEdit } from '../../styles/Icons';
 
 import {
   Container,
@@ -11,8 +12,6 @@ import {
   Flag,
   CountryTitle,
   ButtonsContainer,
-  IconEdit,
-  IconDelete,
   Body,
 } from './styles';
 

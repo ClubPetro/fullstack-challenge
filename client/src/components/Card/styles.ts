@@ -48,21 +48,6 @@ export const ButtonsContainer = styled.div`
   gap: 15px;
 `;
 
-export const IconEdit = styled(EditIcon)`
-  width: 18px;
-  height: 19px;
-  cursor: pointer;
-`;
-
-export const IconDelete = styled(ClearIcon)`
-  cursor: pointer;
-  opacity: 0.8;
-
-  &:hover {
-    opacity: 1;
-  }
-`;
-
 export const Body = styled.main`
   display: flex;
   justify-content: center;
