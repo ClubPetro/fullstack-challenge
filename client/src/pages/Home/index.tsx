@@ -1,6 +1,6 @@
 import React, { useEffect, useState, FormEvent } from 'react';
 
-import { DateInput } from '../../components/DateInput';
+import { Input } from '../../components/Input';
 import { Card, ICard } from '../../components/Card';
 
 import { serverAPI } from '../../services/serverAPI';
@@ -104,27 +104,22 @@ export const Home: React.FC = () => {
             </SelectCountry>
           </InputBlock>
 
-          <InputBlock>
-            <label>Local</label>
-            <InputText
-              placeholder="Digite o local que deseja conhecer"
-              type="text"
-              name="local"
-              id="local"
-              value={local}
-              onChange={event => setLocal(event.target.value)}
-            />
-          </InputBlock>
+          <Input
+            inputStyleType="local"
+            type="text"
+            label="Local"
+            placeholder="Digite o local que deseja conhecer"
+            value={local}
+            onChange={event => setLocal(event.target.value)}
+          />
 
-          <InputBlock>
-            <label>Meta</label>
-            <DateInput
-              name="date"
-              value={date}
-              placeholder="mês/ano"
-              onChange={event => setDate(event.target.value)}
-            />
-          </InputBlock>
+          <Input
+            inputStyleType="date"
+            label="Meta"
+            placeholder="mês/ano"
+            value={date}
+            onChange={event => setDate(event.target.value)}
+          />
 
           <AddNewCountryButton type="submit">Adicionar</AddNewCountryButton>
         </Form>
