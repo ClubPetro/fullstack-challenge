@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+
+  api:
+    container_name: nest_api
+    build: .
+    entrypoint: ./.docker/entrypoint.sh
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    ports:
+      - "3333:3333"
+    volumes:
+      - .:/home/api
+
+  database:
+    container_name: nest_db
+    image: postgres:13
+    restart: always
+    environment:
+      POSTGRES_DB: placestovisit
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: docker
+    ports:
+      - "5433:5432"
